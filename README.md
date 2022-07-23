@@ -1,6 +1,6 @@
-# News
+# news
 
-> News App
+> news app
 
 ## Download App
 <a href="https://github.com/ahmedehab122/News_app/releases/download/v1/News.apk"><img src="https://playerzon.com/asset/download.png" width="200"></img></a>
