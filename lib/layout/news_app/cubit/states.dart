@@ -7,6 +7,8 @@ class newsBottomNavStates extends newsStates {}
 class newsGetBusinessLoadingState extends newsStates{}
 
 class newsGetBusinessSuccessState extends newsStates{}
+class newsSelectedItemState extends newsStates{}
+
 
 class newsGetBusinessErrorState extends newsStates
 {

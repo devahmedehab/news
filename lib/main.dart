@@ -1,4 +1,8 @@
+import 'dart:io';
+
 import 'package:bloc/bloc.dart';
+import 'package:desktop_window/desktop_window.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,10 +14,17 @@ import 'package:news/shared/cubit/cubit.dart';
 import 'package:news/shared/cubit/states.dart';
 import 'package:news/shared/network/local/cache_helper.dart';
 import 'package:news/shared/network/remote/dio_helper.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 void main() async {
+  FlutterError.onError = (FlutterErrorDetails details) {
+    FlutterError.presentError(details);
+    if (kReleaseMode) exit(1);
+  };
   // بيتأكد ان كل حاجه هنا في الميثود خلصت و بعدين يتفح الابلكيشن
   WidgetsFlutterBinding.ensureInitialized();
+ /* if(Platform.isWindows)
+  await DesktopWindow.setMinWindowSize(Size(350.0, 600.0));*/
 
   Bloc.observer = MyBlocObserver();
   DioHelper.init();
@@ -143,7 +154,7 @@ class MyApp extends StatelessWidget {
             AppCubit
                 .get(context)
                 .isDark ? ThemeMode.dark : ThemeMode.light,
-            home: newsLayout(),
+            home: newsLayout()
           );
         },
       ),
