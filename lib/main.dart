@@ -42,13 +42,15 @@ class MyApp extends StatelessWidget {
       providers:
       [
         BlocProvider(
-          create: (context) => newsCubit()
+          create: (context) =>
+          newsCubit()
             ..getBusiness()
             ..getSports()
             ..getScience(),
         ),
         BlocProvider(
-          create: (BuildContext context) => AppCubit()
+          create: (BuildContext context) =>
+          AppCubit()
             ..changeAppMode(
               fromShared: isDark,
             ),
@@ -138,7 +140,9 @@ class MyApp extends StatelessWidget {
               ),
             ),
             themeMode:
-                AppCubit.get(context).isDark ? ThemeMode.dark : ThemeMode.light,
+            AppCubit
+                .get(context)
+                .isDark ? ThemeMode.dark : ThemeMode.light,
             home: newsLayout(),
           );
         },
@@ -146,4 +150,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-/*ahmed*/
